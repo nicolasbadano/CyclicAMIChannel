@@ -115,7 +115,8 @@ void Foam::p_rghJumpAMIFvPatchScalarField::updateCoeffs()
     if (this->cyclicAMIPatch().owner())
     {
         scalarField alphap = this->patch().lookupPatchField<volScalarField, scalar>("alpha.water");
-        //this->jump_ = jumpGHTable_->value(this->db().time().value()); //* alphap;
+        
+        // TODO: It would probably be much better to use the rho field instead of hard coding rho(alpha)
         this->jump_ = jumpTable_->value(this->db().time().value()) * (1.0 + 999.0 * alphap);
     }
 

@@ -30,7 +30,7 @@ Group
     grpCoupledBoundaryConditions
 
 Description
-    This boundary condition provides a jump condition, using the \c cyclicAMI
+    This boundary condition provides a jump condition for p_rgh, using the \c cyclicAMI
     condition as a base.  The jump is specified as a time-varying uniform
     value across the patch.
 
@@ -47,11 +47,11 @@ Usage
     {
         type            p_rghJumpAMI;
         patchType       cyclicAMI;
-        jumpTable       constant 10;
+        jumpTable       constant 0.981;
     }
     \endverbatim
 
-    The above example shows the use of a fixed jump of '10'.
+    The above example shows the use of a fixed jump of 9.81 m/s2 x 0.1 m.
 
 Note
     The uniformValue entry is a Function1 type, able to describe time
