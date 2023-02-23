@@ -56,38 +56,6 @@ libs            ("libp_rghJumpAMI.so");
 
 functions
 {
-    yPlus1
-    {
-        type            yPlus;
-        libs            ("libfieldFunctionObjects.so");
-        writeControl    writeTime;
-        writeInterval   1;
-    }
-    CourantNo1
-    {
-        type            CourantNo;
-        libs            ("libfieldFunctionObjects.so");
-        writeControl    writeTime;
-        writeInterval   1;
-    }
-    outlet
-    {
-        type            surfaceFieldValue;
-        libs            ("libfieldFunctionObjects.so");
-        writeControl    timeStep;
-        writeInterval   1;
-        writeFields     false;
-        log             false;
-        regionType      patch;
-        name            outlet;
-        operation       sum;
-        fields
-        (
-            alphaPhi0.water
-        );
-    }
-
-
     surfaceSampling
     {
         type            surfaces;
@@ -203,61 +171,6 @@ functions
             }
 
         }
-    }
-
-    fieldAverage1
-    {
-        type            fieldAverage;
-        libs            ("libfieldFunctionObjects.so");
-        writeControl    writeTime;
-        restartOnRestart    no;
-        restartOnOutput     no;
-        timeStart             8;
-        timeEnd               10;
-        fields
-        (
-            U
-            {
-                mean        on;
-                prime2Mean  off;
-                base        time;
-            }
-
-            alpha.water
-            {
-                mean        on;
-                prime2Mean  off;
-                base        time;
-            }
-
-            p_rgh
-            {
-                mean        on;
-                prime2Mean  off;
-                base        time;
-            }
-
-            k
-            {
-                mean        on;
-                prime2Mean  off;
-                base        time;
-            }
-
-            omega
-            {
-                mean        on;
-                prime2Mean  off;
-                base        time;
-            }
-
-            nut
-            {
-                mean        on;
-                prime2Mean  off;
-                base        time;
-            }
-        );
     }
 }
 
