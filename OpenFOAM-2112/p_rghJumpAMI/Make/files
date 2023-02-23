@@ -1,0 +1,3 @@
+p_rghJumpAMIFvPatchScalarField.C
+
+LIB = $(FOAM_USER_LIBBIN)/libp_rghJumpAMI
